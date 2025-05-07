@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: comet-server
+    env: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --timeout 120 --bind 0.0.0.0:$PORT
+    envVars:
+      - key: PORT
+        value: 10000

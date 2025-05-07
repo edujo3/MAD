@@ -1,10 +1,10 @@
 services:
   - type: web
-    name: comet-server
-    env: python
-    plan: starter
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:app --timeout 120 --bind 0.0.0.0:$PORT
+    name: comet-voice
+    runtime: python
+    buildCommand: ""
+    startCommand: python app.py
     envVars:
-      - key: PORT
-        value: 10000
+      - key: OPENAI_API_KEY
+        value: tu_clave_openai_aquí
+    plan: free
